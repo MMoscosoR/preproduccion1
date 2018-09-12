@@ -71,7 +71,7 @@ class Mchart extends CI_Model{
     $this->db->limit(1);
 
     $query=$this->db->get();
-    
+
     if ($query->num_rows()>0) {
       return ($query->row());
     }
@@ -87,6 +87,15 @@ class Mchart extends CI_Model{
 
     $query=$this->db->get();
     return $query->row()->valoralmacen;
+  }
+
+  public function nmaquinas($cotratoid){
+    $this->db->select('idmaquina');
+    $this->db->from('maquinas');
+    $this->db->where('idcontrato',$cotratoid);
+    $query=$this->db->get();
+
+    return $query->num_rows();
   }
 
 

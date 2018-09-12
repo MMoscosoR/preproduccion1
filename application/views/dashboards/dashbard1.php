@@ -19,7 +19,7 @@
               <p>Notas de ingreso</p>
             </div>
             <div class="icon">
-              <i class="ion ion-pie-graph"></i>
+              <i class="fas fa-plus"></i>
 
             </div>
             <a href="#" class="small-box-footer">Ingresos totales del contrato</i></a>
@@ -28,18 +28,34 @@
         <!-- ./col -->
         <div class="col-lg-3 col-xs-6">
           <!-- small box -->
-          <div class="small-box bg-green">
+          <div class="small-box bg-blue">
             <div class="inner">
               <h3><?php echo $salidastotales ?><sup style="font-size: 20px"></sup></h3>
 
               <p>Notas de salida</p>
             </div>
             <div class="icon">
-              <i class="ion ion-stats-bars"></i>
+              <i class="fas fa-minus"></i>
             </div>
             <a href="#" class="small-box-footer">Salidas totales del contrato</i></a>
           </div>
         </div>
+
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-green">
+            <div class="inner">
+              <h3><?php echo $nmaquinas ?><sup style="font-size: 20px"></sup></h3>
+
+              <p>Maquinas</p>
+            </div>
+            <div class="icon">
+              <i class="fas fa-truck-loading"></i>
+            </div>
+            <a href="<?php echo base_url() ?>Contrato/maquinas" class="small-box-footer">Maquinas activas en mina</i></a>
+          </div>
+        </div>
+
         <!-- ./col -->
         <div class="col-lg-3 col-xs-6">
           <!-- small box -->

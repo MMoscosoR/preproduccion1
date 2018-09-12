@@ -17,6 +17,7 @@
 <link rel="stylesheet" href="<?php echo $cdn; ?>bower_components/select2/dist/css/select2.min.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="<?php echo $cdn; ?>bower_components/Ionicons/css/ionicons.min.css" >
+
   <link href="<?php echo base_url()?>/assets/plugins/file-input/fileinput.min.css"  rel="stylesheet" />
   <!-- Theme style -->
   <link rel="stylesheet" href="<?php echo $cdn; ?>dist/css/AdminLTE.min.css">

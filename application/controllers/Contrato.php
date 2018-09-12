@@ -403,6 +403,7 @@ $data['periodo']=$this->Mcierremes->getcierres($this->session->userdata('alm_id'
 			$data['valoralmacen']=$this->Mchart->valor_almacen($this->session->userdata('alm_id'));
 			$data['topcodigos']=$this->Mchart->get_topcodigos(10,$this->session->userdata('alm_id'));
 			$data['topcodigosvalor']=$this->Mchart->get_topcodigos_valor(10,$this->session->userdata('alm_id'));
+			$data['nmaquinas']=$this->Mchart->nmaquinas($this->session->userdata('alm_id'));
 			$this->load->view('dashboards/dashbard1',$data);
 			$this->load->view('layout/footer');
 		}
