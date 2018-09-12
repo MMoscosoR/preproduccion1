@@ -1,7 +1,9 @@
 function listar_ingresos(serie){
   $.post(baseurl+'Documento/notas_ingreso',{seriedoc:serie},function(data){
       $('#tbl_stock').html(data);
-      $('table').DataTable();
+      $('table').DataTable({
+        "order": [['0','desc']]
+      });
   });
 
 }

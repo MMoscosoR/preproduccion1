@@ -350,7 +350,7 @@ class Mdocumento extends CI_Model{
     $this->db->join('transaccion t','t.transaccionid=c.transaccionid');
     $this->db->where('c.tipo', $tipo);
     $this->db->where('c.contratoid', $idalmacen);
-    $this->db->where('c.seriedocid', $seriedoc);
+    $this->db->where('c.seriedocid', $seriedoc);    
     $query=$this->db->get();
     return $query->result();
 
