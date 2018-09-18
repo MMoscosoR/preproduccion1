@@ -135,6 +135,9 @@
           <ul class="treeview-menu">
             <?php if($this->session->acceso_submenu_21==1){ ?><li><a href="<?php echo base_url() ?>Contrato/costo-almacen" id='menu_kardex_valorizado'><i class="fa fa-circle-o"></i>Costo de almacen</a></li><?php } ?>
             <?php if($this->session->acceso_submenu_22==1){ ?><li><a href="<?php echo base_url() ?>Contrato/kardex-unidad" id='menu_kardex_unidad'><i class="fa fa-circle-o"></i> Kardex en unidades</a></li><?php } ?>
+            <?php if($this->session->acceso_submenu_35==1){ ?><li><a href="<?php echo base_url() ?>Contrato/consumo-maquina" id='menu_consumo_maquina'><i class="fa fa-circle-o"></i> Consumo por maquina</a></li><?php } ?>
+            <?php if($this->session->acceso_submenu_36==1){ ?><li><a href="<?php echo base_url() ?>Contrato/consumo-personal" id='menu_consumo_personal'><i class="fa fa-circle-o"></i> Consumo por personal</a></li><?php } ?>
+            <?php if($this->session->acceso_submenu_37==1){ ?><li><a href="<?php echo base_url() ?>Contrato/consumo-area" id='menu_consumo_area'><i class="fa fa-circle-o"></i> Consumo por area</a></li><?php } ?>
 
           </ul>
         </li>

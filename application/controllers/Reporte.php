@@ -196,4 +196,13 @@ class Reporte extends CI_Controller{
     $this->load->view('secciones/reportes/valor-almacen', $data);
 
   }
+
+  public function listarConsumos(){
+    $datofiltro=$this->input->post('filtro');
+    $periodo=$this->input->post('periodo');
+    $campo=$this->input->post('campo');
+
+    $data['consumos']=$this->Mreporte->getconsumo($campo,$datofiltro,$periodo);
+    $this->load->view('secciones/reportes/reporte-consumos', $data);
+  }
 }

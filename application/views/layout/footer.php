@@ -177,6 +177,18 @@
 <?php if($this->uri->segment(2)=='costo-almacen'){ ?>
 	<script src="<?php echo base_url() ?>js/reporte/kardex-valorizado.js"></script>
 <?php } ?>
+
+<?php if($this->uri->segment(2)=='consumo-maquina'){ ?>
+	<script src="<?php echo base_url() ?>js/reporte/consumo-maquina.js"></script>
+<?php } ?>
+
+<?php if($this->uri->segment(2)=='consumo-personal'){ ?>
+	<script src="<?php echo base_url() ?>js/reporte/consumo-solicitante.js"></script>
+<?php } ?>
+
+<?php if($this->uri->segment(2)=='consumo-area'){ ?>
+	<script src="<?php echo base_url() ?>js/reporte/consumo-area.js"></script>
+<?php } ?>
 <!-- fin reportes -->
 
 <!-- procesos -->

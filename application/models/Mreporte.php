@@ -109,6 +109,24 @@ class Mreporte extends CI_Model{
 
   }
 
+  public function getconsumo($campo,$dato,$periodo){
+    $inicio= date('Y-m-d',strtotime(substr(str_replace('/','-',$periodo),0,10)));
+    $fin=date('Y-m-d',strtotime(substr(str_replace('/','-',$periodo),12,11)));
+
+    $this->db->select('c.seriedocid,c.correlativo,d.codigo,d.descripcion,d.serie,d.cantidad,d.unidad,t.nombre,c.fecha');
+    $this->db->from('movalmdet d');
+    $this->db->join('movalmcab c', 'd.movalmcabid = c.idmovalmcab');
+    $this->db->join('transaccion t', 't.transaccionid = c.transaccionid');
+    $this->db->where('d.'.$campo,$dato);
+    $this->db->where('d.contratoid',$this->session->userdata('alm_id'));
+    $this->db->where('c.fecha>=',$inicio );
+    $this->db->where('c.fecha<=',$fin);
+    $query = $this->db->get();
+
+    return $query->result();
+
+  }
+
 
 
 }

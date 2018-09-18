@@ -445,6 +445,45 @@ $data['periodo']=$this->Mcierremes->getcierres($this->session->userdata('alm_id'
 			}
 		}
 
+		public function consumo_maquina(){
+			if(!$this->session->acceso_submenu_35==1){
+				redirect(base_url().'Contrato');
+			}else{
+				$this->load->model(array('Mmaquinas'));
+				$this->load->view('layout/header');
+				$this->load->view('layout/menu');
+				$data['maquinas']=$this->Mmaquinas->getmaquinas();
+				$this->load->view('reportes/consumo-maquina',$data);
+				$this->load->view('layout/footer');
+			}
+		}
+
+		public function consumo_personal(){
+			if(!$this->session->acceso_submenu_36==1){
+				redirect(base_url().'Contrato');
+			}else{
+				$this->load->model(array('Msolicitantes'));
+				$this->load->view('layout/header');
+				$this->load->view('layout/menu');
+				$data['personal']=$this->Msolicitantes->getsolicitantes();
+				$this->load->view('reportes/consumo-personal',$data);
+				$this->load->view('layout/footer');
+			}
+		}
+		public function consumo_area(){
+			if(!$this->session->acceso_submenu_37==1){
+				redirect(base_url().'Contrato');
+			}else{
+				$this->load->model(array('Mcentrocosto'));
+				$this->load->view('layout/header');
+				$this->load->view('layout/menu');
+				$data['areas']=$this->Mcentrocosto->getallcentros();
+				$this->load->view('reportes/consumo-area',$data);
+				$this->load->view('layout/footer');
+			}
+		}
+
+
 
 
 
