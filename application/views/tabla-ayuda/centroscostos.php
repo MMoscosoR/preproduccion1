@@ -12,7 +12,7 @@
 		        		<table class="table table-bordered table-hover" id="tbl_centroscosto">
 		        			<thead>
                     <tr>
-                      <th>#</th>
+                      <th>Codigo</th>
                       <th>Area</th>
                       <th>Acciones</th>
                     </tr>
@@ -21,7 +21,7 @@
 		        			<tbody>
                       <?php foreach ($centroscosto as $key): ?>
                         <tr>
-                          <td><?php echo $key->idcentrocosto ?></td>
+                          <td><?php echo $key->codigo ?></td>
                           <td><?php echo $key->descripcion ?></td>
                           <td><a href="" class="btn btn-primary btn-xs editar-centrocosto" data-id="<?php echo $key->idcentrocosto ?>" data-nombre="<?php echo $key->descripcion ?>">Editar</a></td>
                         </tr>

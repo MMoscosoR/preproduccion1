@@ -12,7 +12,7 @@
 		        		<table class="table table-bordered table-hover" id="tbl_maquinas">
 		        			<thead>
                     <tr>
-                      <th>#</th>
+                      <th>Codigo</th>
                       <th>Nombres</th>
                       <th>Acciones</th>
                     </tr>
@@ -21,7 +21,7 @@
 		        			<tbody>
                       <?php foreach ($solicitantes as $key): ?>
                         <tr>
-                          <td><?php echo $key->idsolicitante ?></td>
+                          <td><?php echo $key->codigo ?></td>
                           <td><?php echo $key->fullname ?></td>
                           <td><a href="" class="btn btn-primary btn-xs editar-solicitante" data-id="<?php echo $key->idsolicitante ?>" data-nombre="<?php echo $key->fullname ?>">Editar</a></td>
                         </tr>

@@ -18,10 +18,14 @@ class Solicitantes extends CI_Controller{
     $solicitante=$this->input->post('fullname');
     $idsolicitante=$this->input->post('idsolicitante');
     $contrato=$this->input->post('contrato');
-    $objeto = array('fullname' => $solicitante,
-                    'contratoid' =>$contrato
-                  );
+    $codigo=$this->Msolicitantes->getlastcodigo();
+
     if($idsolicitante==''){
+      $objeto = array('fullname' => $solicitante,
+                      'contratoid' =>$contrato,
+                      'codigo' =>$codigo
+                    );
+
       if($this->Msolicitantes->save($objeto)==1){
         echo 'Registrado exitosamente';
       }
@@ -30,6 +34,9 @@ class Solicitantes extends CI_Controller{
       }
     }
     else{
+      $objeto = array('fullname' => $solicitante,
+                      'contratoid' =>$contrato                      
+                    );
       if($this->Msolicitantes->update($objeto,$idsolicitante)==1){
         echo 'Actualizado exitosamente';
       }

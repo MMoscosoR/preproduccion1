@@ -15,6 +15,15 @@ class Mcentrocosto extends CI_Model{
     $query=$this->db->get();
     return $query->result();
   }
+
+  public function getlastcodigo(){
+    $this->db->select_max('codigo');
+    $this->db->where('contratoid',$this->session->userdata('alm_id'));
+    $this->db->from('centrocostointerno');
+    $query=$this->db->get();
+    return $query->row()->codigo+1;
+  }
+
   public function save($centrocosto){
     $this->db->insert('centrocostointerno', $centrocosto);
     if($this->db->affected_rows()>0){

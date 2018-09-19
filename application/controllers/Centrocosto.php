@@ -18,10 +18,13 @@ class Centrocosto extends CI_Controller{
     $maquina=$this->input->post('descripcion');
     $idmaquina=$this->input->post('idcentrocosto');
     $contrato=$this->input->post('contrato');
-    $objeto = array('descripcion' => $maquina,
-                    'contratoid' =>$contrato
-                  );
+    $codigo=$this->Mcentrocosto->getlastcodigo();
+
     if($idmaquina==''){
+      $objeto = array('descripcion' => $maquina,
+                      'contratoid' =>$contrato,
+                      'codigo' => $codigo
+                    );
       if($this->Mcentrocosto->save($objeto)==1){
         echo 'Registrado exitosamente';
       }
@@ -30,6 +33,9 @@ class Centrocosto extends CI_Controller{
       }
     }
     else{
+      $objeto = array('descripcion' => $maquina,
+                      'contratoid' =>$contrato
+                    );
       if($this->Mcentrocosto->update($objeto,$idmaquina)==1){
         echo 'Actualizado exitosamente';
       }
