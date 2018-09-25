@@ -189,6 +189,16 @@
 <?php if($this->uri->segment(2)=='consumo-area'){ ?>
 	<script src="<?php echo base_url() ?>js/reporte/consumo-area.js"></script>
 <?php } ?>
+
+<?php if($this->uri->segment(2)=='reporte-sig'){ ?>
+	<script src="<?php echo base_url() ?>js/reporte/reporte-sig.js"></script>
+<?php } ?>
+
+<?php if($this->uri->segment(2)=='consulta-reporte-sig'){ ?>
+  <script src="<?php echo base_url() ?>js/reporte/consulta-reporte-sig.js"></script>
+	
+<?php } ?>
+
 <!-- fin reportes -->
 
 <!-- procesos -->

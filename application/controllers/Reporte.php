@@ -7,7 +7,7 @@ class Reporte extends CI_Controller{
   {
     parent::__construct();
     //Codeigniter : Write Less Do More
-    $this->load->model(array('Mreporte','Marticulo'));
+    $this->load->model(array('Mreporte','Marticulo','Mreportesig'));
     $this->load->library('pdf');
 
   }
@@ -205,4 +205,58 @@ class Reporte extends CI_Controller{
     $data['consumos']=$this->Mreporte->getconsumo($campo,$datofiltro,$periodo);
     $this->load->view('secciones/reportes/reporte-consumos', $data);
   }
+
+  public function detalles_por_vale(){
+    $vale=$this->input->post('vale');
+    $detalles=$this->Mreportesig->getdetalles($vale,$this->session->alm_id);
+    echo json_encode($detalles);
+  }
+
+  public function guardar_formato_sig(){
+    $cabecera = array('almacen' =>$this->input->post('sig_almacen'),
+                      'n_salida'=>$this->input->post('sig_ns'),
+                      'fecha_doc'  =>date('Y-m-d',strtotime($this->input->post('sig_fecha'))),
+                      'transaccion'=>$this->input->post('sig_transaccion'),
+                      'cliente'=>$this->input->post('sig_cliente'),
+                      'ruc'=>$this->input->post('sig_ruc'),
+                      'usuario'=>$this->input->post('sig_usuario'),
+                      'dni'=>$this->input->post('sig_dni'),
+                      'comentario'=>$this->input->post('sig_comentario'),
+                      'doc_ref'=>$this->input->post('sig_docref'),
+                      'contratoid'=>$this->session->userdata('alm_id')
+                     );
+      $detalle=json_decode($this->input->post('tbldetalle'));
+
+      echo $this->Mreportesig->insertar_reporte($cabecera,$detalle);
+
+
+
+
+  }
+
+  public function generar_reporte_sig($id){
+    $data['cabecera']=$this->Mreportesig->getcabecerasig($id);
+
+    $data['detalles']=$this->Mreportesig->getdetallesig($id);
+    $paper_size = array(0,0,0,-1);
+    $html_content=$this->load->view('pdf/reporte-sig', $data,TRUE);
+
+    $this->pdf->set_paper($paper_size);
+    $this->pdf->set_paper('letter','landscape');
+    ini_set("memory_limit","10000M");
+   $this->pdf->loadHtml($html_content);
+   $this->pdf->render();
+   $this->pdf->stream("REPORTE-SIG.pdf", array("Attachment"=>0));
+  }
+  public function  eliminar_reporte_sig(){
+
+      $iddocumento=$this->input->post('id');
+      echo $this->Mreportesig->deletereporte($iddocumento);
+  }
+
+
+
+
+
+
 }

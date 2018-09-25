@@ -483,6 +483,31 @@ $data['periodo']=$this->Mcierremes->getcierres($this->session->userdata('alm_id'
 			}
 		}
 
+		public function reporte_sig(){
+			if(!$this->session->acceso_submenu_38==1){
+				redirect(base_url().'Contrato');
+			}else{
+				$this->load->model(array('Mreportesig'));
+				$this->load->view('layout/header');
+				$this->load->view('layout/menu');
+				$data['vales']=$this->Mreportesig->getvales($this->session->alm_id);
+				$this->load->view('reportes/reporte-sig',$data);
+				$this->load->view('layout/footer');
+			}
+		}
+
+		public function consulta_reporte_sig(){
+			if(!$this->session->acceso_submenu_39==1){
+				redirect(base_url().'Contrato');
+			}else{
+				$this->load->model(array('Mreportesig'));
+				$this->load->view('layout/header');
+				$this->load->view('layout/menu');
+				$data['reportessig']=$this->Mreportesig->getreportessig();
+				$this->load->view('reportes/consulta-reporte-sig',$data);
+				$this->load->view('layout/footer');
+			}
+		}
 
 
 

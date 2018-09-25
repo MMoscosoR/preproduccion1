@@ -138,7 +138,7 @@
             <?php if($this->session->acceso_submenu_35==1){ ?><li><a href="<?php echo base_url() ?>Contrato/consumo-maquina" id='menu_consumo_maquina'><i class="fa fa-circle-o"></i> Consumo por maquina</a></li><?php } ?>
             <?php if($this->session->acceso_submenu_36==1){ ?><li><a href="<?php echo base_url() ?>Contrato/consumo-personal" id='menu_consumo_personal'><i class="fa fa-circle-o"></i> Consumo por personal</a></li><?php } ?>
             <?php if($this->session->acceso_submenu_37==1){ ?><li><a href="<?php echo base_url() ?>Contrato/consumo-area" id='menu_consumo_area'><i class="fa fa-circle-o"></i> Consumo por area</a></li><?php } ?>
-
+            <?php if($this->session->acceso_submenu_39==1){ ?><li><a href="<?php echo base_url() ?>Contrato/consulta-reporte-sig" id='menu_consulta_reporte_sig'><i class="fa fa-circle-o"></i>SIG</a></li><?php } ?>
           </ul>
         </li>
         <?php } ?>
@@ -156,6 +156,7 @@
 
             <?php if($this->session->acceso_submenu_28==1){ ?><li><a href="<?php echo base_url() ?>Contrato/cierre-mes" id='menu_cierre_mes'><i class="fa fa-circle-o"></i>Cierre de mes</a></li><?php } ?>
             <?php if($this->session->acceso_submenu_29==1){ ?><li><a href="<?php echo base_url() ?>Contrato/aperturar-mes" id='menu_apertura_mes'><i class="fa fa-circle-o"></i>Apertura de mes</a></li><?php } ?>
+            <?php if($this->session->acceso_submenu_38==1){ ?><li><a href="<?php echo base_url() ?>Contrato/reporte-sig" id='menu_reporte-sig'><i class="fa fa-circle-o"></i>Generar Reporte SIG</a></li><?php } ?>
           </ul>
         </li>
         <?php } ?>
