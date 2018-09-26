@@ -38,4 +38,13 @@ class Mmaquinas extends CI_Model{
       return 0;
     }
   }
+
+  public function getmaquinabynombre($nombre){
+    $this->db->select('*');
+    $this->db->from('maquinas');
+    $this->db->where('descripcion',$nombre);
+    $this->db->where('idcontrato',$this->session->userdata('alm_id'));
+    $query=$this->db->get();
+    return $query->num_rows();
+  }
 }

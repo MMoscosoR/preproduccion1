@@ -118,13 +118,13 @@ class Cargaexcel extends CI_Controller{
     $this->Mcargaexcel->insertar_temporal($data);
     $seriedoc=$this->input->post('seriedoc');
     $data['carga']=$this->Mcargaexcel->consumo_listar_temporal($seriedoc);
-    $this->load->view('secciones/envios-lima/grid_detalle_carga', $data);
+    $this->load->view('secciones/consumo/grid_consumo', $data);
   }
 
   public function listar_consumo(){
     $seriedoc=$this->input->post('seriedoc');
     $data['carga']=$this->Mcargaexcel->consumo_listar_temporal($seriedoc);
-    $this->load->view('secciones/envios-lima/grid_detalle_carga', $data);
+    $this->load->view('secciones/consumo/grid_consumo', $data);
 
   }
   public function eliminar_consumo(){

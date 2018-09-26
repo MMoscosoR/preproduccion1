@@ -127,14 +127,42 @@ $('#btn_confirmar_nota').on('click',function(e){
     success: function(data){
         if(data=='1'){
           $('#msg').html('<div class="callout callout-success"><h4>Registro correcto!</h4><p>Se emitio el documento exitosamente.</p> </div>');
+            location.reload();
         }
         else{
           $('#msg').html('<div class="callout callout-danger"><h4>Error!</h4><p>'+data+'.</p> </div>');
+          $('#btn_confirmar_nota').prop('disabled',false);
         }
-        location.reload();
+
     },
     error: function (xhr, ajaxOptions, thrownError) {
         $('#msg').html('<div class="callout callout-danger"><h4>'+thrownError+'!</h4><p>Verifique que no exista codigos,o series repetidas.</p> </div>');
       }
   });
+});
+
+//----------------carga masiva por excel-----------------------------
+$('#btn_cargaexcel').on('click',function(e){
+  var formData = new FormData(document.getElementById("form_envio_excel"));
+    formData.append('seridoc',$('#sel_seriedoc').val());
+$('.modal.in').modal('hide');
+  $.ajax({
+      url:baseurl+"Consumo/carga_consumo",
+      type:"post",
+      data:formData,
+      cache: false,
+      contentType: false,
+      processData: false,
+      beforeSend:function(){
+          $('#detalle-carga').html('<div><h3>Registrando...</h3></div>');
+      },
+      success:function(data){
+          $('#divenvio').show();
+          $('#relacion_consumo').html(data);
+          $('table').DataTable();
+        }
+
+  });
+
+
 });

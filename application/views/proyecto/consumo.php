@@ -17,9 +17,13 @@
 										<?php endforeach; ?>
                   </select>
 		        		</div>
-                <div class="col-md-4">
+                <div class="col-md-2">
                   <label for="">&nbsp;</label><br>
                   <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Agregar articulo</button>
+                </div>
+								<div class="col-md-2">
+                  <label for="">&nbsp;</label><br>
+                  <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#cargardesdeexcel">Cargar excel</button>
                 </div>
 
 
@@ -162,6 +166,37 @@
     </div>
   </div>
 </div>
+
+<!-- modal de carga excel -->
+
+<div class="modal fade" id="cargardesdeexcel"  role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Cargar excel <a href="<?php echo base_url();?>assets/files/plantilla_de_carga_NI.xlsx" class="btn btn-info btn-xs"><i class="far fa-file-excel"></i>Plantilla</a></h4>
+      </div>
+      <div class="modal-body">
+				<div class="modal-body">
+						<form  method="post" enctype="multipart/form-data" id=form_envio_excel>
+						<div class="form-group">
+						  <label for="">Excel</label>
+						  <input type="file" class="form-control" id="excel" name="excelfile" accept=".xls, .xlsx">
+						  <p class="help-block">Acomodar la información en la plantilla.</p>
+						</div>
+						</form>
+	      </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary" id="btn_cargaexcel">Cargar códigos</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
 
 <!-- modal confirmacion -->
 <div class="modal fade" role="dialog" aria-labelledby="myModalLabel" id="modal_resumen">

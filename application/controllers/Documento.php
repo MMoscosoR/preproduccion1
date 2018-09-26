@@ -124,7 +124,7 @@ class Documento extends CI_Controller{
                          );
           //obtiene el detalle de la tabla temporal
           $detguia=$this->Mdocumento->gettemporal();
-          $this->Mdocumento->borrarcarga();
+
 
 
           //verificar si el mes esta cerrado
@@ -139,7 +139,11 @@ class Documento extends CI_Controller{
             }
             else{
               //se registra el documento y retorna 1 enc caso d exito
-              echo $this->Mdocumento->save($cabecera,$detguia,$this->input->post('nidocid'),'NS')['msg'];
+              $rs= $this->Mdocumento->save($cabecera,$detguia,$this->input->post('nidocid'),'NS')['msg'];
+              echo $rs;
+              if($rs=='1'){
+                $this->Mdocumento->borrarcarga();
+              }
             }
 
 

@@ -42,4 +42,13 @@ class Msolicitantes extends CI_Model{
       return 0;
     }
   }
+
+  public function getsolicitantebyid($id){
+    $this->db->select('*');
+    $this->db->from('solicitantes');
+    $this->db->where('codigo',$id);
+    $this->db->where('contratoid',$this->session->userdata('alm_id'));
+    $query=$this->db->get();
+    return $query->num_rows();
+  }
 }

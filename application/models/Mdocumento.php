@@ -44,7 +44,11 @@ class Mdocumento extends CI_Model{
               $this->db->trans_rollback();
               $error='No hay stock -> codigo:'.$key->DECODIGO.' Serie: '.$key->DESERIE.'<br>';
 
-          }else {
+          }else if($key->idsolicitante=='-1' or $key->area=='-1' or $key->MAQUINA=='-1'){
+            $this->db->trans_rollback();
+            $error='Codigo solicitante o area erroneo en el item: ->'.$key->DECODIGO.' Serie: '.$key->DESERIE.'<br>';
+          }
+          else {
           //comprobar si existe en la vista alm_virtual de starsoft
           $startsoftarticulo=$this->getfromstarsoft($key->DECODIGO,$key->DESERIE);
 
@@ -350,7 +354,7 @@ class Mdocumento extends CI_Model{
     $this->db->join('transaccion t','t.transaccionid=c.transaccionid');
     $this->db->where('c.tipo', $tipo);
     $this->db->where('c.contratoid', $idalmacen);
-    $this->db->where('c.seriedocid', $seriedoc);    
+    $this->db->where('c.seriedocid', $seriedoc);
     $query=$this->db->get();
     return $query->result();
 

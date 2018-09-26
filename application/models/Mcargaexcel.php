@@ -130,7 +130,8 @@ class Mcargaexcel extends CI_Model{
           $data['maquina']=$key->MAQUINA;
           $data['docref']=$key->DOC_REF;
           $data['descripcion']=utf8_encode($key->ADESCRI);
-
+          $data['idsolicitante']=$key->idsolicitante;
+          $data['area']=$key->area;
           //Adjuntar el stock actual a la vista de carga
 
           $this->db->select('stock');

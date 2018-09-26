@@ -44,4 +44,13 @@ class Mcentrocosto extends CI_Model{
     }
   }
 
+  public function getareabyid($id){
+    $this->db->select('*');
+    $this->db->from('centrocostointerno');
+    $this->db->where('codigo',$id);
+    $this->db->where('contratoid',$this->session->userdata('alm_id'));
+    $query=$this->db->get();
+    return $query->num_rows();
+  }
+
 }
